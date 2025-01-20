@@ -1,28 +1,28 @@
 name: Genarate Podcast Feeds
 on: 
-push:
- jobs:
+ push:
+jobs:
   build:
    runs-on: ubuntu-last
    steps:
    -name: Checkout Repo
-     uses: actions/checkout@v3
+    uses: actions/checkout@v3
    -name: Setup Python
-     uses: action/setup-python@v4
-     with:
+    uses: action/setup-python@v4
+    with:
       python-version: '3.10'
    -name: Install Dependencies 
-      run: |
-       python -m pip install - upgrade pip
+     run: |
+      python -m pip install - upgrade pip
        pip install pyyaml
-    -name: Run Feed Generator
-    run: python feed.py
-    -name: Push Repo
-    run: |
-     git config user.name github-actions
-     git congif usere.email github-action@github.com
-     git add
-     git commit -m " Modifies Feed
-     git push
+   -name: Run Feed Generator
+     run: python feed.py
+   -name: Push Repo
+     run: |
+      git config user.name github-actions
+      git congif usere.email github-action@github.com
+      git add
+      git commit -m " Modifies Feed
+      git push
       
    
